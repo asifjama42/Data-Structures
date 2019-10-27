@@ -20,6 +20,29 @@ void deleteBinaryTree(Node* &root){
     root = nullptr;
 };
 
+// iterative approach to delete a binary tree
+// delete each node in the queue one by one after pushing their children to the queue.
+// Note that we’re deleting a parent here before deleting its children’s as 
+// we’re pushing them into the queue and they will be processed and deleted afterwards.
+
+void deleteBinaryTreeItt(Node* &root){
+    if(root==nullptr) return;
+    queue<Node*> queue ;
+    queue.push(root);
+    Node* front = nullptr;
+    while(!queue.empty()){
+        front = queue.front();
+        queue.pop();
+        if(front->left){
+            queue.push(front->left);
+        }
+        if(front->right){
+            queue.push(front->right);
+        }
+        delete front;
+    }
+}
+
 void printTree(Node* &root){
     if(root==nullptr){
         return;
@@ -41,7 +64,8 @@ int main()
     root->left->right = new Node(12);
     root->right->left = new Node(16);
     root->right->right = new Node(25);
-    deleteBinaryTree(root);
+    printTree(root);
+    deleteBinaryTreeItt(root);
     if(root==nullptr){
         cout<<"Tree deleted successfully..";
     }
