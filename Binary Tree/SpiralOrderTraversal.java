@@ -65,6 +65,51 @@ public class SpiralOrderTraversal {
 		System.out.println();
 		System.out.println("Spiral Order Traversal..");
 		traverse(root);
+		
+		
+		System.out.println();
+		System.out.println("Spiral Order Traversal Using Hashing");
+		levelOrderTraversal(root);
 	}
+		
+	
+	
+	// Spiral Order Traversal using Hashing.
+
+	
+	public static void levelOrderTraversal(Node root) {
+		Map<Integer,Deque<Integer>> map = new HashMap<>();
+		preOrder(root,1,map);
+		for(int i =1;i<=map.size();i++) {
+			System.out.println(map.get(i).toString());
+		}
+		
+	}
+	
+	
+	public static void preOrder(Node root,int level,Map<Integer,Deque<Integer>> map) {
+		
+		if(root==null) return;
+		
+		if(!map.containsKey(level)) {
+			map.put(level, new ArrayDeque<>());
+		}
+		if(level%2!=0) {
+			map.get(level).addLast(root.data);
+		}
+		else {
+			map.get(level).addFirst(root.data);
+		}
+		
+		
+		
+		
+		preOrder(root.left, level+1, map);
+		preOrder(root.right,level+1,map);
+		
+		
+	}
+	
+
 
 }
