@@ -32,6 +32,9 @@ public class PrintSpecificOrder {
 		for (int i = 1; i <= s; i++) {
 			System.out.print(rdeque.pollFirst().data + "-");
 		}
+				
+		traverseInSpecificOrder(root);
+
 	}
 
 	static Deque<Node> deque = new ArrayDeque<>();
@@ -76,6 +79,40 @@ public class PrintSpecificOrder {
 			}
 
 		}
+	}
+	
+	public static void traverseInSpecificOrder(Node root) {
+		if (root == null)
+			return;
+		Deque<Node> dequeL = new ArrayDeque<>(), dequeR = new ArrayDeque<>();
+		dequeL.add(root.left);
+		dequeR.add(root.right);
+		System.out.print(root.data+"->");
+		while (!dequeL.isEmpty()) {
+			int size = dequeL.size();
+			while (size-- > 0) {
+				Node temp = dequeL.poll();
+				if (temp.left != null) {
+					dequeL.add(temp.left);
+				}
+				if (temp.right != null) {
+					dequeL.add(temp.right);
+
+				}
+				System.out.print(temp.data + "->");
+
+				temp = dequeR.poll();
+				if (temp.left != null) {
+					dequeR.add(temp.right);
+				}
+				if (temp.right != null) {
+					dequeR.add(temp.left);
+
+				}
+				System.out.print(temp.data+"->");
+			}
+		}
+
 	}
 
 }
