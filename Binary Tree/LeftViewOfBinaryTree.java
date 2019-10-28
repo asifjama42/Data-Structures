@@ -17,6 +17,35 @@ public class LeftViewBinaryTree {
 		preOrder(root.left, level+1, map);
 		preOrder(root.right, level+1, map);
 	}
+	//Iterative Approach
+	
+	static int size = 0;
+	public static void leftViewIttreative(Node root) {
+		Deque<Node> deque = new ArrayDeque<>();
+		if(root!=null)deque.add(root);
+		
+		while(!deque.isEmpty()) {
+			int i =0;
+			size = deque.size();
+			while(i++<size) {
+				if (i==1) {
+					System.out.print(deque.peekFirst().data +"-");
+				}
+				Node temp = deque.poll();
+				if(temp.left!=null) {
+					deque.add(temp.left);
+					
+				}
+				if(temp.right!=null) {
+					deque.add(temp.right);
+					
+				}
+					
+			}
+			
+		}
+	}
+	
 	public static void main(String[] args) {
 		Node root = new Node(1);
 		root.left = new Node(2);
