@@ -113,3 +113,45 @@ public class SpiralOrderTraversal {
 
 
 }
+/*
+Output
+
+First Tree
+
+                              15
+
+                    7
+
+                              14
+
+          3
+
+                              13
+
+                    6
+
+                              12
+
+1
+
+                              11
+
+                    5
+
+                              10
+
+          2
+
+                              9
+
+                    4
+
+                              8
+
+Spiral Order Traversal..
+1->3->2->4->5->6->7->15->14->13->12->11->10->9->8->
+Spiral Order Traversal Using Hashing
+[1]
+[3, 2]
+[4, 5, 6, 7]
+[15, 14, 13, 12, 11, 10, 9, 8]
