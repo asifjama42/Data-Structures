@@ -73,3 +73,42 @@ public class HeightBT {
 	}
 
 }
+/*
+Output 
+First Tree
+
+                              15
+
+                                                  17
+
+                                        16
+
+                    7
+
+                              14
+
+          3
+
+                              13
+
+                    6
+
+                              12
+
+1
+
+                              11
+
+                    5
+
+                              10
+
+          2
+
+                              9
+
+                    4
+
+                              8
+
+Height of given Tree -> 6
