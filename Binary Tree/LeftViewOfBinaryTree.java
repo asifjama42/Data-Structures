@@ -43,3 +43,22 @@ public class LeftViewBinaryTree {
 	}
 
 }
+/*
+Output
+
+First Tree
+
+                              15
+
+                    7
+
+          3
+
+                    6
+
+1
+
+          2
+
+1-2-6-15-
+*/
