@@ -36,3 +36,7 @@ public class Node { //A Linked List Node
 	
 	
 }
+/*
+Output
+Linked List...1->2->3->4->5->null
+
