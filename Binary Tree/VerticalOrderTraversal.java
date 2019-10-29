@@ -3,7 +3,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.util.Pair;
-public class VerticalOrderTraversal {
+public class VerticalLevelTraversal {
 	static int hd = 0;
 	static 		Map<Integer,Deque<Integer>> map = new HashMap<>();
 //Not done
@@ -49,13 +49,13 @@ public class VerticalOrderTraversal {
 		root.right.left = new Node(6);
 		root.right.right = new Node(7);
 
-		//root.left.left.left = new Node(8);
-		//root.left.left.right = new Node(9);
-		//root.left.right.left = new Node(10);
-		//root.left.right.right = new Node(11);
-		//root.right.left.left = new Node(12);
-		//root.right.left.right = new Node(13);
-		//root.right.right.left = new Node(14);
+		root.left.left.left = new Node(8);
+		root.left.left.right = new Node(9);
+		root.left.right.left = new Node(10);
+		root.left.right.right = new Node(11);
+		root.right.left.left = new Node(12);
+		root.right.left.right = new Node(13);
+		root.right.right.left = new Node(14);
 		root.right.right.right = new Node(15);
 
 		System.out.println("First Tree");
@@ -63,13 +63,13 @@ public class VerticalOrderTraversal {
 		System.out.println();
 		traverseVertically(root);
 		for(Map.Entry entry : map.entrySet()) {
-			System.out.println("Key : " +  entry.getKey() + " " + " Value " + entry.getValue());
+			System.out.println("Horizotal Distance : " +  entry.getKey() + " " + " Value " + entry.getValue());
 		}
 		System.out.println();
 		System.out.println("Recursive Try");
 		traverse(root, 0);
 		for(Map.Entry entry : mapI.entrySet()) {
-			System.out.println("Key : " +  entry.getKey() + " " + " Value " + entry.getValue() );
+			System.out.println("Horizotal Distance : " +  entry.getKey() + " " + " Value " + entry.getValue() );
 			}
 	}
 	static Map<Integer,Deque<Integer>> mapI = new HashMap<>(); 
@@ -96,29 +96,45 @@ First Tree
 
                     7
 
+                              14
+
           3
+
+                              13
 
                     6
 
+                              12
+
 1
+
+                              11
 
                     5
 
+                              10
+
           2
+
+                              9
 
                     4
 
-Key : 0  Value [1, 5, 6]
-Key : -1  Value [2]
-Key : 1  Value [3]
-Key : -2  Value [4]
-Key : 2  Value [7]
-Key : 3  Value [15]
+                              8
+
+Horizotal Distance : 0  Value [1, 5, 6]
+Horizotal Distance : -1  Value [2, 9, 10, 12]
+Horizotal Distance : 1  Value [3, 11, 13, 14]
+Horizotal Distance : -2  Value [4]
+Horizotal Distance : 2  Value [7]
+Horizotal Distance : -3  Value [8]
+Horizotal Distance : 3  Value [15]
 
 Recursive Try
-Key : 0  Value [1, 5, 6]
-Key : -1  Value [2]
-Key : -2  Value [4]
-Key : 1  Value [3]
-Key : 2  Value [7]
-Key : 3  Value [15]
+Horizotal Distance : 0  Value [1, 5, 6]
+Horizotal Distance : -1  Value [2, 9, 10, 12]
+Horizotal Distance : -2  Value [4]
+Horizotal Distance : 1  Value [11, 3, 13, 14]
+Horizotal Distance : -3  Value [8]
+Horizotal Distance : 2  Value [7]
+Horizotal Distance : 3  Value [15]
