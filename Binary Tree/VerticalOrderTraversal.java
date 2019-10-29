@@ -3,7 +3,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.util.Pair;
-public class VerticalLevelTraversal {
+public class VerticalOrderTraversal {
 	static int hd = 0;
 	static 		Map<Integer,Deque<Integer>> map = new HashMap<>();
 //Not done
