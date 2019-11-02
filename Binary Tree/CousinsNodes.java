@@ -83,6 +83,32 @@ public class CousinNodeBT {
 		dfs(node.right,node);
 
 	}
+	
+		// Third Approach Pre Order Traversal..
+	static int x_pointer = -1;
+	static int y_pointer = -1;
+	static Node x_parent;
+	static Node y_parent;
+	public static boolean isCousins2(Node root,int x,int y) {
+		
+		
+		getDepthAndParent(root,x,y,0,null);
+		return x_pointer==y_pointer && x_parent!=y_parent;
+	}
+
+	private static void getDepthAndParent(Node root, int x, int y, int depth, Node parent) {
+		if(root==null) return;
+		if(root.data==x) {
+			x_pointer = depth;
+			x_parent= parent;
+		}
+		if(root.data==y) {
+			y_pointer = depth;
+			y_parent = parent;
+		}
+		getDepthAndParent(root.left, x, y, depth+1, root);
+		getDepthAndParent(root.right, x, y, depth+1, root);
+	}
 
 	
 }
