@@ -60,6 +60,31 @@ public class CousinNodeBT {
 		System.out.println(isCousins(root, 5, 4));
 	}
 
+	
+	// A straightforward approach is to be able to know the parent and depth of each
+	// node.
+
+	static Map<Integer, Integer> depth;
+	static Map<Integer, Node> parent;
+
+	public static boolean isCousins1(Node root, int x, int y) {
+		depth = new HashMap<>();
+		parent = new HashMap<>();
+		dfs(root,null);
+		return depth.get((Integer)x)==depth.get((Integer)y) && parent.get(x)!=parent.get(y);
+	}
+
+	public static void dfs(Node node, Node par) {
+		if (node == null)
+			return;
+		depth.put(node.data, par != null ? 1 + depth.get(par.data) : 0);
+		parent.put(node.data, par);
+		dfs(node.left,node);
+		dfs(node.right,node);
+
+	}
+
+	
 }
 /*
 Output
